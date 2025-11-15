@@ -15,7 +15,11 @@ DATABASE_URL = os.environ.get('DATABASE_URL')  # Postgres
 
 app = Flask(__name__, static_folder='../qbo-frontend/dist', static_url_path='/')
 if FRONTEND_URL:
-    CORS(app, resources={"*": {"origins": ["null", FRONTEND_URL]}})
+    CORS(app, resources={
+    r"/receipts": {"origins": FRONTEND_URL},
+    r"/connect": {"origins": FRONTEND_URL},
+    r"/callback": {"origins": FRONTEND_URL}
+})
 else:
     CORS(app)
 
