@@ -13,7 +13,7 @@ FRONTEND_URL = os.environ.get('FRONTEND_URL')      # e.g. https://your-frontend.
 RECEIPTS_API_KEY = os.environ.get('RECEIPTS_API_KEY')  # optional
 DATABASE_URL = os.environ.get('DATABASE_URL')  # Postgres
 
-app = Flask(__name__, static_folder='../frontend/dist', static_url_path='/')
+app = Flask(__name__, static_folder='../qbo-frontend/dist', static_url_path='/')
 if FRONTEND_URL:
     CORS(app, resources={
     r"/receipts": {"origins": FRONTEND_URL},
